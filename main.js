@@ -1,16 +1,16 @@
-const dotenv = require('dotenv');
-dotenv.config();
+
 const Discord = require('discord.js');
+const fs = require('fs');
+const { prefix, authToken} = require('./config.json');
+
 const client = new Discord.Client();
 const collection = new Discord.Collection();
-const prefix = '-mn-';
-const fs = require('fs');
+
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 
 for(const file of commandFiles){
     const command = require(`./commands/${file}`);
-
     client.commands.set(command.name, command);
 }
 
@@ -19,21 +19,22 @@ client.once('ready', () =>{
 });
 
 client.on('message',  async message =>{
+
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(' ');
     const command = args.shift().toLowerCase();
 
-    if(command === 'hello'){
-        await client.commands.get('hello').execute(message, args);
-    } else if (command === 'userinfo'){
-        await client.commands.get('userInfo').execute(message, args);
-    } else if (command === 'dm'){
-        await client.commands.get('dm').execute(message, args);
-    } else if (command === 'help'){
-        await client.commands.get('help').execute(client, message, args);
+    if (!client.commands.has(command)) return;
+
+    try {
+        client.commands.get(command).execute(message, args);
+    } catch (error) {
+        console.error(error);
+        message.reply('Woops! An error occured while trying to execute this command!')
     }
+
 });
 
-client.login(process.env.AUTHTOKEN);
+client.login(authToken);
 
