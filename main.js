@@ -1,3 +1,5 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const collection = new Discord.Collection();
@@ -33,5 +35,5 @@ client.on('message',  async message =>{
     }
 });
 
-client.login('NzgyMjQ0MjA1OTc5NzYyNjk4.X8JXsA.jTz_NWJ_f327OiQAW4r2CSqIpPU');
+client.login(process.env.AUTHTOKEN);
 
