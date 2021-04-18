@@ -15,7 +15,7 @@ for(const file of commandFiles){
 }
 
 client.once('ready', () =>{
-    console.log('MovieNightBot is on!');
+    console.log('MovieNightBot is now on!');
 });
 
 client.on('message',  async message =>{
