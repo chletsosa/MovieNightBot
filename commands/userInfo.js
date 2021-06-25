@@ -8,7 +8,7 @@ module.exports = {
     usage: "-mn-userInfo [user mention]",
     async execute(message, args){
 
-        const member = await message.mentions.members.last();
+        const member = await message.mentions.members.last() || message.guild.members.cache.get(target) || message.member;
 
         //Member variables
         const joined = formatDate(member.joinedAt);
@@ -22,7 +22,7 @@ module.exports = {
         console.log(member.user.avatarURL);
         const embed = new MessageEmbed()
             .setFooter(member.displayName, member.user.displayAvatarURL)
-            .setThumbnail(member.user.displayAvatarURL)
+            .setThumbnail(member.user.displayAvatarURL({dynamic: true}))
             .setColor(member.displayHexColor === '#000000' ? '#ffffff' : member.displayHexColor)
             .addField('Member information:', stripIndents`**> Display Name:** ${member.displayName}
                 **> Joined at:** ${joined}

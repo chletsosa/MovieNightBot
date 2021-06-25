@@ -1,11 +1,11 @@
-const { stripIndents } = require("common-tags");
+//const { stripIndents } = require("common-tags");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: 'help',
     description: "Sends a list of all commands, or information about a specific command.",
     aliases: ['commands'],
-    usage: '[command name]',
+    usage: '-mn-help, -mn-help [command name]',
     execute(message, args){
         const data = [];
         const { commands } = message.client;
