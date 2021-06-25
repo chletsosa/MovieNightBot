@@ -5,10 +5,10 @@ files:
    destination: /home/ec2-user/app
 hooks:
   AfterInstall:
-   - location: scripts/install_app_dependencies
+   - location: deploy/install_app_dependencies
      timeout: 300
      runas: root
   ApplicationStart:
-   - location: scripts/start_server
+   - location: deploy/start_bot
      timeout: 300
      runas: root
