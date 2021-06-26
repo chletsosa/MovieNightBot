@@ -1,4 +1,4 @@
-#!/usr/bin/bash
-nvm use node
+#!/usr/bin/env bash
+export PATH=$PATH:/home/ec2-user/.nvm/versions/node/v16.4.0/bin/
 cd /home/ec2-user/app
 node main.js
