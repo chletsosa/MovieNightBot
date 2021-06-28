@@ -1,7 +1,7 @@
 
 const Discord = require('discord.js');
 const fs = require('fs');
-const { prefix, authToken} = require('./config.json');
+const { prefix, DISCORD_TOKEN:authToken} = process.env;
 
 const client = new Discord.Client();
 const collection = new Discord.Collection();
