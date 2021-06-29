@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 export PATH=$PATH:/home/ec2-user/.nvm/versions/node/v16.4.0/bin/
-cd /home/ec2-user/app
+cd /home/ec2-user
+#cd /home/ec2-user/app
 pm2 start movie-night-bot.config.js
