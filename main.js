@@ -1,3 +1,4 @@
+console.log("env", process.env);
 const Discord = require('discord.js');
 const fs = require('fs');
 const { prefix, DISCORD_TOKEN:authToken} = process.env;
