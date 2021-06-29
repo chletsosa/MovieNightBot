@@ -4,14 +4,16 @@
   "description": "A Discord Bot used for scheduling and reminding users of movie streams on a given Discord Server.",
   "main": "main.js",
   "scripts": {
-    "test": "runBot"
+    "start": "node -r dotenv/config main"
   },
   "author": "Alexander \"Venkman\" Chletsos",
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.11.0",
     "common-tags": "^1.8.0",
-    "discord.js": "^12.5.3",
-    "dotenv": "^8.2.0"
+    "discord.js": "^12.5.3"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
   }
 }
