@@ -2,5 +2,5 @@
 export PATH=$PATH:/home/ec2-user/.nvm/versions/node/v16.4.0/bin/
 cd /home/ec2-user/app
 pm2 stop movie_night_bot
-cp ../movie-night-bot.config.js ./app/
+cp ../movie-night-bot.config.js ./
 npm install ci
